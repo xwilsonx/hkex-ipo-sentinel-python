@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .upload-section {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .toc-section {
+            margin-top: 20px;
+        }
+        .section-item {
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .section-item:hover {
+            background-color: #f5f5f5;
+        }
+        .section-content {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Processor</h1>
+    
+    <div class="upload-section">
+        <h2>Upload PDF</h2>
+        <input type="file" id="pdfFile" accept=".pdf" />
+        <button id="uploadBtn">Upload and Process</button>
+        <div id="uploadStatus"></div>
+    </div>
+    
+    <div id="tocSection" class="toc-section hidden">
+        <h2>Table of Contents</h2>
+        <div id="tocList"></div>
+    </div>
+    
+    <div id="sectionContent" class="section-content hidden">
+        <h3>Section Content</h3>
+        <div id="contentText"></div>
+    </div>
+
+    <script>
+        let currentDocId = null;
+
+        document.getElementById('uploadBtn').addEventListener('click', async () => {
+            const fileInput = document.getElementById('pdfFile');
+            const statusDiv = document.getElementById('uploadStatus');
+            
+            if (!fileInput.files.length) {
+                statusDiv.textContent = 'Please select a PDF file';
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            if (file.type !== 'application/pdf') {
+                statusDiv.textContent = 'Please select a PDF file';
+                return;
+            }
+            
+            statusDiv.textContent = 'Uploading and processing...';
+            
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                
+                const response = await fetch('/api/v1/upload-pdf', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                currentDocId = result.document_id;
+                
+                statusDiv.textContent = 'Processing complete!';
+                displayTOC(result.toc);
+            } catch (error) {
+                statusDiv.textContent = `Error: ${error.message}`;
+                console.error('Upload error:', error);
+            }
+        });
+        
+        function displayTOC(toc) {
+            const tocSection = document.getElementById('tocSection');
+            const tocList = document.getElementById('tocList');
+            
+            tocList.innerHTML = '';
+            
+            toc.forEach(entry => {
+                const div = document.createElement('div');
+                div.className = 'section-item';
+                div.style.paddingLeft = `${entry.level * 20}px`;
+                div.innerHTML = `
+                    <strong>${entry.title}</strong>
+                    <br><small>Page ${entry.page}</small>
+                `;
+                div.addEventListener('click', () => loadSectionContent(entry.section_path));
+                tocList.appendChild(div);
+            });
+            
+            tocSection.classList.remove('hidden');
+        }
+        
+        async function loadSectionContent(sectionPath) {
+            if (!currentDocId) return;
+            
+            try {
+                const response = await fetch(`/api/v1/document/${currentDocId}/section/${sectionPath}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                
+                const contentDiv = document.getElementById('contentText');
+                contentDiv.textContent = result.content;
+                
+                const sectionContentDiv = document.getElementById('sectionContent');
+                sectionContentDiv.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading section content:', error);
+                alert(`Error loading section content: ${error.message}`);
+            }
+        }
+    </script>
+</body>
+</html>

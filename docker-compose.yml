@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  pdf-processor:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./pdf_processor:/app/pdf_processor
+    environment:
+      - PYTHONPATH=/app

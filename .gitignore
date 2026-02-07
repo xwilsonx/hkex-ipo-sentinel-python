@@ -1,0 +1,42 @@
+# Spec Kit - OpenCode agent directory (may contain credentials)
+.opencode/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# PDF processing data (test outputs)
+data_*/
+data_*.pdf
+temp_*/tmp_*/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+test.pdf
+test_document.md
