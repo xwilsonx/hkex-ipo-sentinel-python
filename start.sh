@@ -6,4 +6,4 @@ pip install -r requirements.txt
 
 # Start the application
 echo "Starting PDF Processor API..."
-python -m pdf_processor.main
+uvicorn pdf_processor.main:app --reload

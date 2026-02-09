@@ -1,0 +1,210 @@
+{
+  "entries": [
+    {
+      "level": 1,
+      "title": "WARNING",
+      "page": 1,
+      "section_path": "section_000_WARNING"
+    },
+    {
+      "level": 1,
+      "title": "IMPORTANT",
+      "page": 2,
+      "section_path": "section_001_IMPORTANT"
+    },
+    {
+      "level": 1,
+      "title": "EXPECTED TIMETABLE",
+      "page": 6,
+      "section_path": "section_002_EXPECTED TIMETABLE"
+    },
+    {
+      "level": 1,
+      "title": "CONTENTS",
+      "page": 9,
+      "section_path": "section_003_CONTENTS"
+    },
+    {
+      "level": 1,
+      "title": "SUMMARY",
+      "page": 11,
+      "section_path": "section_004_SUMMARY"
+    },
+    {
+      "level": 1,
+      "title": "DEFINITIONS",
+      "page": 31,
+      "section_path": "section_005_DEFINITIONS"
+    },
+    {
+      "level": 1,
+      "title": "GLOSSARY OF TECHNICAL TERMS",
+      "page": 44,
+      "section_path": "section_006_GLOSSARY OF TECHNICAL TERMS"
+    },
+    {
+      "level": 1,
+      "title": "FORWARD-LOOKING STATEMENTS",
+      "page": 54,
+      "section_path": "section_007_FORWARD-LOOKING STATEMENTS"
+    },
+    {
+      "level": 1,
+      "title": "RISK FACTORS",
+      "page": 56,
+      "section_path": "section_008_RISK FACTORS"
+    },
+    {
+      "level": 1,
+      "title": "WAIVERS FROM STRICT COMPLIANCE WITH THE LISTING RULES",
+      "page": 96,
+      "section_path": "section_009_WAIVERS FROM STRICT COMPLIANCE WITH THE LISTING RULES"
+    },
+    {
+      "level": 1,
+      "title": "INFORMATION ABOUT THIS DOCUMENT AND THE [REDACTED]",
+      "page": 103,
+      "section_path": "section_010_INFORMATION ABOUT THIS DOCUMENT AND THE REDACTED"
+    },
+    {
+      "level": 1,
+      "title": "DIRECTORS AND PARTIES INVOLVED IN THE [REDACTED]",
+      "page": 108,
+      "section_path": "section_011_DIRECTORS AND PARTIES INVOLVED IN THE REDACTED"
+    },
+    {
+      "level": 1,
+      "title": "CORPORATE INFORMATION",
+      "page": 111,
+      "section_path": "section_012_CORPORATE INFORMATION"
+    },
+    {
+      "level": 1,
+      "title": "INDUSTRY OVERVIEW",
+      "page": 113,
+      "section_path": "section_013_INDUSTRY OVERVIEW"
+    },
+    {
+      "level": 1,
+      "title": "REGULATORY OVERVIEW",
+      "page": 138,
+      "section_path": "section_014_REGULATORY OVERVIEW"
+    },
+    {
+      "level": 1,
+      "title": "HISTORY, DEVELOPMENT AND CORPORATE STRUCTURE",
+      "page": 159,
+      "section_path": "section_015_HISTORY DEVELOPMENT AND CORPORATE STRUCTURE"
+    },
+    {
+      "level": 1,
+      "title": "BUSINESS",
+      "page": 172,
+      "section_path": "section_016_BUSINESS"
+    },
+    {
+      "level": 1,
+      "title": "RELATIONSHIP WITH OUR CONTROLLING SHAREHOLDERS",
+      "page": 257,
+      "section_path": "section_017_RELATIONSHIP WITH OUR CONTROLLING SHAREHOLDERS"
+    },
+    {
+      "level": 1,
+      "title": "CONNECTED TRANSACTIONS",
+      "page": 264,
+      "section_path": "section_018_CONNECTED TRANSACTIONS"
+    },
+    {
+      "level": 1,
+      "title": "DIRECTORS AND SENIOR MANAGEMENT",
+      "page": 266,
+      "section_path": "section_019_DIRECTORS AND SENIOR MANAGEMENT"
+    },
+    {
+      "level": 1,
+      "title": "SUBSTANTIAL SHAREHOLDERS",
+      "page": 285,
+      "section_path": "section_020_SUBSTANTIAL SHAREHOLDERS"
+    },
+    {
+      "level": 1,
+      "title": "SHARE CAPITAL",
+      "page": 287,
+      "section_path": "section_021_SHARE CAPITAL"
+    },
+    {
+      "level": 1,
+      "title": "FINANCIAL INFORMATION",
+      "page": 291,
+      "section_path": "section_022_FINANCIAL INFORMATION"
+    },
+    {
+      "level": 1,
+      "title": "FUTURE PLANS AND [REDACTED]",
+      "page": 349,
+      "section_path": "section_023_FUTURE PLANS AND REDACTED"
+    },
+    {
+      "level": 1,
+      "title": "[REDACTED]",
+      "page": 353,
+      "section_path": "section_024_REDACTED"
+    },
+    {
+      "level": 1,
+      "title": "STRUCTURE OF THE [REDACTED]",
+      "page": 365,
+      "section_path": "section_025_STRUCTURE OF THE REDACTED"
+    },
+    {
+      "level": 1,
+      "title": "HOW TO APPLY FOR [REDACTED]",
+      "page": 376,
+      "section_path": "section_026_HOW TO APPLY FOR REDACTED"
+    },
+    {
+      "level": 1,
+      "title": "APPENDIX I - ACCOUNTANTS' REPORT",
+      "page": 396,
+      "section_path": "section_027_APPENDIX I - ACCOUNTANTS REPORT"
+    },
+    {
+      "level": 1,
+      "title": "APPENDIX II - [REDACTED] FINANCIAL INFORMATION",
+      "page": 508,
+      "section_path": "section_028_APPENDIX II - REDACTED FINANCIAL INFORMATION"
+    },
+    {
+      "level": 1,
+      "title": "APPENDIX III - SUMMARY OF THE ARTICLES",
+      "page": 514,
+      "section_path": "section_029_APPENDIX III - SUMMARY OF THE ARTICLES"
+    },
+    {
+      "level": 1,
+      "title": "APPENDIX IV - STATUTORY AND GENERAL INFORMATION",
+      "page": 538,
+      "section_path": "section_030_APPENDIX IV - STATUTORY AND GENERAL INFORMATION"
+    },
+    {
+      "level": 1,
+      "title": "APPENDIX V - DOCUMENTS DELIVERED TO THE REGISTRAR OF COMPANIES AND AVAILABLE ON DISPLAY",
+      "page": 572,
+      "section_path": "section_031_APPENDIX V - DOCUMENTS DELIVERED TO THE REGISTRAR OF COMPANIES AND AVAILABLE ON DISPLAY"
+    }
+  ],
+  "metadata": {
+    "format": "PDF 1.6",
+    "title": "",
+    "author": "",
+    "subject": "",
+    "keywords": "",
+    "creator": "XPP",
+    "producer": "Acrobat Distiller 10.1.16 (Windows)",
+    "creationDate": "D:20260126180011Z",
+    "modDate": "D:20260126183051+08'00'",
+    "trapped": "",
+    "encryption": null
+  },
+  "page_count": 573
+}

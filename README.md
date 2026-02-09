@@ -80,3 +80,6 @@ Retrieve the content of a specific section by its path.
 - Section content is stored in separate files rather than in memory
 - Asynchronous file operations prevent blocking
 - Temporary files are cleaned up after processing
+
+## Important
+**MUST READ** the application development environment is running in WSL2 on top of a windows machine. Whenever opens a terminal or command prompt, make sure it is the WSL2 terminal, not the windows terminal. Otherwise, the application will not run.

@@ -5,6 +5,8 @@ from typing import Dict, Any
 import json
 import uuid
 import logging
+import re
+import shutil
 
 from pdf_processor.core.pdf_processor import PDFProcessor
 from pdf_processor.models.schemas import TOCResponse
@@ -14,6 +16,20 @@ logger = logging.getLogger(__name__)
 
 # Initialize processor
 processor = PDFProcessor()
+
+def sanitize_filename(filename: str) -> str:
+    """Sanitize filename to be used as directory name"""
+    # Remove extension
+    name = Path(filename).stem
+    
+    # Replace non-alphanumeric characters with underscore
+    clean_name = re.sub(r'[^\w\-_]', '_', name)
+    
+    # Remove multiple underscores
+    clean_name = re.sub(r'_+', '_', clean_name)
+    
+    # Remove leading/trailing underscores
+    return clean_name.strip('_')
 
 @router.post("/upload-pdf", response_model=TOCResponse)
 async def upload_pdf(
@@ -28,9 +44,15 @@ async def upload_pdf(
         raise HTTPException(status_code=400, detail="File must be a PDF")
     
     try:
-        # Generate unique ID for this document processing
-        doc_id = str(uuid.uuid4())
+        # Use sanitized filename as doc_id to prevent duplication
+        doc_id = sanitize_filename(file.filename)
         
+        # Clean up existing directory if it exists
+        doc_dir = Path("data") / doc_id
+        if doc_dir.exists():
+            shutil.rmtree(doc_dir)
+            logger.info(f"Cleaned up existing directory for {doc_id}")
+            
         # Process the PDF
         toc_data = await processor.process_pdf(file, doc_id)
         
@@ -41,6 +63,10 @@ async def upload_pdf(
                 "title": entry["title"],
                 "page": entry["page"],
                 "section_path": entry["section_path"]
+            } for entry in toc_data["toc"]],
+            files=[{
+                "name": f"{entry['title']}.json",
+                "url": f"/api/v1/document/{doc_id}/section/{entry['section_path']}"
             } for entry in toc_data["toc"]],
             metadata=toc_data["metadata"]
         )

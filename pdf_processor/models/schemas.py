@@ -8,10 +8,16 @@ class TOCEntry(BaseModel):
     page: int
     section_path: str  # Path to access the section content
 
+class FileEntry(BaseModel):
+    """Represents a generated file available for download"""
+    name: str
+    url: str
+
 class TOCResponse(BaseModel):
     """Response model for TOC extraction"""
     document_id: str
     toc: List[TOCEntry]
+    files: List[FileEntry]
     metadata: Dict[str, Any]
 
 class SectionContent(BaseModel):

@@ -115,11 +115,19 @@ class PDFProcessor:
             section_path = "section_000_full_document"
             all_content = await self._extract_all_pages_async(pdf_path, page_count)
             
+            # Join all pages content
+            full_text = "\n\n".join(all_content)
+            
             section_file = sections_dir / f"{section_path}.md"
             async with aiofiles.open(section_file, 'w') as f:
-                await f.write(all_content)
+                await f.write(full_text)
             
-            toc_entries = []
+            toc_entries = [{
+                "level": 1,
+                "title": "Full Document",
+                "page": 1,
+                "section_path": section_path
+            }]
         
         # Save TOC data
         toc_file = doc_dir / "toc.json"
