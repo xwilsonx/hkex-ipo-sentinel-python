@@ -1,0 +1,9 @@
+{
+  "names": [],
+  "salutation": "To Whom It May Concern,",
+  "generated_summary": "Summary generation not supported in pure SpaCy mode.",
+  "metadata": {
+    "method": "spacy",
+    "model": "core_web_sm"
+  }
+}
